@@ -18,4 +18,7 @@ export class DataManagerService {
     console.log(this.cloneUsers)
   }
 
+  takeUsers(){
+    return this.cloneUsers;
+  }
 }

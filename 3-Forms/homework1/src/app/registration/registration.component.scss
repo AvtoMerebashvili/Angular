@@ -74,8 +74,13 @@
                     border: none;
                     color:white;
                     margin-left: 99px;
-                    &{
+                    &:hover{
                         cursor: pointer;
+                        background-color: rgb(36, 108, 190);
+                        &:disabled{
+                            background-color: rgb(199, 199, 199);
+                            color: rgb(78, 78, 78);
+                        }
                     }
                 }
             }   

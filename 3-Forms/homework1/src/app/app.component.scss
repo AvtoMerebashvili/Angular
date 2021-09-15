@@ -1,6 +1,8 @@
-.registration{
-    position: absolute;
-    left: 50%;
-    top: 35%;
-    transform: translate(-50%,-50%);
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .list{
+        width: 90%
+    }
 }

@@ -6,7 +6,7 @@
                 <div class="input">
                     <input formControlName="mail" id="mail" type="text">
                     <ng-container *ngIf="form.get('mail')?.errors">
-                        <P *ngIf="form.get('mail')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('mail')?.errors?.required">required</P>
                         <p *ngIf="form.get('mail')?.errors?.pattern">Pattern is wron</p>
                     </ng-container>
                 </div>
@@ -16,7 +16,7 @@
                 <div class="input">
                     <input formControlName="password" id="passw" type="text">
                     <ng-container *ngIf="form.get('password')?.errors">
-                        <P *ngIf="form.get('password')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('password')?.errors?.required">required</P>
                         <p *ngIf="form.get('password')?.errors?.pattern">Pattern is wrong</p>
                         <p *ngIf="form.get('password')?.errors?.minlength && !form.get('password')?.errors?.pattern">min length: 7</p>
                     </ng-container>
@@ -26,9 +26,9 @@
                 <div class="input">
                     <input formControlName="confirmPassword" id="confpassw" type="text">
                     <ng-container *ngIf="form.get('confirmPassword')?.errors">
-                        <P *ngIf="form.get('confirmPassword')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('confirmPassword')?.errors?.required">required</P>
                         <p *ngIf="form.get('confirmPassword')?.errors?.pattern">Pattern is wrong</p>
-                        <p *ngIf="form.get('confirmPassword')?.errors?.minlength && !form.get('password')?.errors?.pattern">min length: 7</p>
+                        <p *ngIf="form.get('confirmPassword')?.errors?.minlength && !form.get('confirmPassword')?.errors?.pattern">min length: 7</p>
                     </ng-container>
                 </div>
             </div><div class="field">
@@ -36,7 +36,7 @@
                 <div class="input">
                     <input formControlName="nickname" id="nick" type="text">
                     <ng-container *ngIf="form.get('nickname')?.errors">
-                        <P *ngIf="form.get('nickname')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('nickname')?.errors?.required">required</P>
                         <p *ngIf="form.get('nickname')?.errors?.pattern">Pattern is wrong</p>
                     </ng-container>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="input">
                     <input formControlName="phoneNumber" id="phone" type="text">
                     <ng-container *ngIf="form.get('phoneNumber')?.errors">
-                        <P *ngIf="form.get('phoneNumber')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('phoneNumber')?.errors?.required">required</P>
                         <p *ngIf="form.get('phoneNumber')?.errors?.pattern">Pattern is wrong</p>
                     </ng-container>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="input">
                     <input formControlName="website" id="web" type="text">
                     <ng-container *ngIf="form.get('website')?.errors">
-                        <P *ngIf="form.get('website')?.errors?.required">it is required</P>
+                        <P *ngIf="form.get('website')?.errors?.required">required</P>
                         <p *ngIf="form.get('website')?.errors?.pattern">Pattern is wrong</p>
                     </ng-container>
                 </div>

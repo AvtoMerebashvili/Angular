@@ -1,0 +1,14 @@
+
+<div class="users" >
+    <div class="user" *ngFor="let user of users">
+        <p>Mail:</p> <p class='val'>{{user.mail}}</p>
+        <p>Passw:</p> <p class='val'>{{user.password}}</p>
+        <p>Nick:</p> <p class='val'>{{user.nickname}}</p>
+        <p>Phone:</p> <p class='val'>{{user.phoneNumber}}</p>
+        <p>Web:</p> <p class='val'>{{user.website}}</p>
+        <div class="features">
+            <button>Update</button>
+            <button>Remove</button>
+        </div>
+    </div>
+</div>

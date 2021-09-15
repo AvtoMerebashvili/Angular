@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit{
     password: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') ,Validators.required]) ,
     confirmPassword: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') , Validators.required]),
     nickname: new FormControl('', [Validators.pattern('^[a-zA-Z0-9\\-]*$'), Validators.required]),
-    phoneNumber: new FormControl('',[Validators.pattern('(\\+380)\\d\\d\\d\\d\\d\\d\\d\\d\\d$'), Validators.required]),
+    phoneNumber: new FormControl('+380',[Validators.pattern('(\\+380)\\d\\d\\d\\d\\d\\d\\d\\d\\d$'), Validators.required]),
     website: new FormControl('',[Validators.pattern('[a-z0-9]+(\\.[a-z0-9]+)+$'), Validators.required]),
     checkBox: new FormControl(false,Validators.requiredTrue),
   });
@@ -39,7 +39,8 @@ export class RegistrationComponent implements OnInit{
 
   onSubmit(){
     if(this.form.valid){
-      this.dataService.addUser(this.form.value)
+      this.dataService.addUser(this.form.value);
+      this.form.reset()
     }else{
       window.alert("user didn't registered becouse of invalid fields")
     }
