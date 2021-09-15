@@ -6,5 +6,5 @@ export interface User {
     phoneNumber: any,
     website: any,
     checkBox: boolean
-
+    id:number
 }

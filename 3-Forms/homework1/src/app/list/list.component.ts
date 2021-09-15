@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { DataManagerService } from '../data-manager.service';
 import { User } from '../user';
 
@@ -20,4 +20,8 @@ export class ListComponent implements OnInit {
     this.users = this.dataManager.takeUsers();
   }
 
+  onEdit(id:number){
+    this.dataManager.getId(id)
+  
+  }
 }

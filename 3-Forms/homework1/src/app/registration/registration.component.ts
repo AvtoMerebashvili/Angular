@@ -1,6 +1,5 @@
-import { escapeRegExp } from '@angular/compiler/src/util';
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, ValidationErrors , Form} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { tap } from "rxjs/operators";
 import { DataManagerService } from '../data-manager.service';
 

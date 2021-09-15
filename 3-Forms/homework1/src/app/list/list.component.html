@@ -7,7 +7,7 @@
         <p>Phone:</p> <p class='val'>{{user.phoneNumber}}</p>
         <p>Web:</p> <p class='val'>{{user.website}}</p>
         <div class="features">
-            <button>Update</button>
+            <button (click)="onEdit(user.id)">Update</button>
             <button>Remove</button>
         </div>
     </div>
