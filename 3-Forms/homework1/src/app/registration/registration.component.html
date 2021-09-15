@@ -1,0 +1,74 @@
+<div class="form">
+    <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="grid">
+            <div class="field">
+                <label for="mail"><span>*</span>E-mail:</label>
+                <div class="input">
+                    <input formControlName="mail" id="mail" type="text">
+                    <ng-container *ngIf="form.get('mail')?.errors">
+                        <P *ngIf="form.get('mail')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('mail')?.errors?.pattern">Pattern is wron</p>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="field">
+                <label for="passw"><span>*</span> Password:</label>
+                <div class="input">
+                    <input formControlName="password" id="passw" type="text">
+                    <ng-container *ngIf="form.get('password')?.errors">
+                        <P *ngIf="form.get('password')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('password')?.errors?.pattern">Pattern is wrong</p>
+                        <p *ngIf="form.get('password')?.errors?.minlength && !form.get('password')?.errors?.pattern">min length: 7</p>
+                    </ng-container>
+                </div>
+            </div><div class="field">
+                <label for="confpassw"><span>*</span>Confirm Password:</label>
+                <div class="input">
+                    <input formControlName="confirmPassword" id="confpassw" type="text">
+                    <ng-container *ngIf="form.get('confirmPassword')?.errors">
+                        <P *ngIf="form.get('confirmPassword')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('confirmPassword')?.errors?.pattern">Pattern is wrong</p>
+                        <p *ngIf="form.get('confirmPassword')?.errors?.minlength && !form.get('password')?.errors?.pattern">min length: 7</p>
+                    </ng-container>
+                </div>
+            </div><div class="field">
+                <label for="nick"><span>*</span>Nickname:</label>
+                <div class="input">
+                    <input formControlName="nickname" id="nick" type="text">
+                    <ng-container *ngIf="form.get('nickname')?.errors">
+                        <P *ngIf="form.get('nickname')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('nickname')?.errors?.pattern">Pattern is wrong</p>
+                    </ng-container>
+                </div>
+            </div><div class="field">
+                <label for="phone"><span>*</span>Phone Number:</label>
+                <div class="input">
+                    <input formControlName="phoneNumber" id="phone" type="text">
+                    <ng-container *ngIf="form.get('phoneNumber')?.errors">
+                        <P *ngIf="form.get('phoneNumber')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('phoneNumber')?.errors?.pattern">Pattern is wrong</p>
+                    </ng-container>
+                </div>
+            </div><div class="field">
+                <label for="web"><span>*</span>Website:</label>
+                <div class="input">
+                    <input formControlName="website" id="web" type="text">
+                    <ng-container *ngIf="form.get('website')?.errors">
+                        <P *ngIf="form.get('website')?.errors?.required">it is required</P>
+                        <p *ngIf="form.get('website')?.errors?.pattern">Pattern is wrong</p>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="field">
+                <div class="merge">
+                    <input formControlName="checkBox" type="checkbox"> 
+                    <p>I have read the <a href="">agreement</a></p>
+                </div>
+            </div>
+            <div class="field">
+                <button [disabled]="this.disableStatus" type="submit">Register</button>
+            </div>
+        </div>
+    </form>
+</div>
+
