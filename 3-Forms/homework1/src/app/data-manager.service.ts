@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { find } from 'rxjs/operators';
 import { User } from './user';
 
 @Injectable({
@@ -19,17 +20,21 @@ export class DataManagerService {
     user.id= ++DataManagerService.id
     this.Users.push(user)
     this.cloneUsers = this.Users
-    // console.log(this.cloneUsers)
   }
 
   takeUsers(){
     return this.cloneUsers;
   }
 
-  getId(Id:number){
-    console.log(Id)
-    let f =  this.cloneUsers.find(user => user.id == Id)
-    console.log(f)
+  getUser(Id:number){
+    this.currentUser = this.cloneUsers.find(user => user.id == Id)
+  }
+
+  updateUser(user:User, id:number | undefined){
+    user.id = <number>id;
+    this.Users.map(current => {
+      current.id == id ? Object.assign(current, user) : current=current
+    })
   }
 
 }

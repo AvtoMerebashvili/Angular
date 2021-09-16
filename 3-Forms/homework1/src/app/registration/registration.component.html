@@ -7,7 +7,7 @@
                     <input formControlName="mail" id="mail" type="text">
                     <ng-container *ngIf="form.get('mail')?.errors">
                         <P *ngIf="form.get('mail')?.errors?.required">required</P>
-                        <p *ngIf="form.get('mail')?.errors?.pattern">Pattern is wron</p>
+                        <p *ngIf="form.get('mail')?.errors?.pattern">Pattern is wrong</p>
                     </ng-container>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { DataManagerService } from '../data-manager.service';
 import { User } from '../user';
 
@@ -8,8 +8,8 @@ import { User } from '../user';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
-
+export class ListComponent implements OnInit, OnChanges {
+  updateStatus:boolean = false;
   users:User[]=[];
 
   constructor(
@@ -19,9 +19,17 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.users = this.dataManager.takeUsers();
   }
+  
+  ngOnChanges(){
+    this.users = this.dataManager.takeUsers()
+  }
 
   onEdit(id:number){
-    this.dataManager.getId(id)
-  
+    this.updateStatus=true;
+    this.dataManager.getUser(id)
+  }
+
+  onSubmit(value:boolean){
+    this.updateStatus=value;
   }
 }
