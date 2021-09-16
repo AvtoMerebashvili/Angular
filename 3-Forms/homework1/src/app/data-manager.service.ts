@@ -37,4 +37,14 @@ export class DataManagerService {
     })
   }
 
+  deleteUser(Id:number){
+    this.Users = this.Users.filter(user => user.id!=Id )
+    this.cloneUsers = this.Users
+  }
+
+  passwordCheck(passw: string, confPassword:string | undefined): boolean{
+    if(confPassword == passw)return true 
+    else return false
+  }
+
 }

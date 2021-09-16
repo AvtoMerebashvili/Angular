@@ -13,12 +13,12 @@ export class RegistrationComponent implements OnInit{
   disableStatus: boolean | undefined = true;
   
   form:FormGroup = new FormGroup({
-    mail: new FormControl('', [Validators.pattern('[a-z0-9]+\\@[a-z]+(\\.[a-z]+)+$'), Validators.required]),
+    mail: new FormControl('', [Validators.pattern('[a-zA-Z0-9]+\\@[a-zA-Z]+(\\.[a-zA-Z]+)+$'), Validators.required]),
     password: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') ,Validators.required]) ,
     confirmPassword: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') , Validators.required]),
     nickname: new FormControl('', [Validators.pattern('^[a-zA-Z0-9\\-]*$'), Validators.required]),
     phoneNumber: new FormControl('+380',[Validators.pattern('(\\+380)\\d\\d\\d\\d\\d\\d\\d\\d\\d$'), Validators.required]),
-    website: new FormControl('',[Validators.pattern('[a-z0-9]+(\\.[a-z0-9]+)+$'), Validators.required]),
+    website: new FormControl('',[Validators.pattern('[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+$'), Validators.required]),
     checkBox: new FormControl(false,Validators.requiredTrue),
   });
   
@@ -31,7 +31,7 @@ export class RegistrationComponent implements OnInit{
     this.form.valueChanges
     .pipe(
       tap(value=>{
-        this.disable(this.passwordCheck(value.password,value.confirmPassword),value.checkBox) 
+        this.disable(this.dataService.passwordCheck(value.password,value.confirmPassword),value.checkBox) 
       })
     ).subscribe()
   }
@@ -49,8 +49,5 @@ export class RegistrationComponent implements OnInit{
     pass == true && checkbox == true ? this.disableStatus = false : this.disableStatus = true
   }
 
-  private passwordCheck(passw: string, confPassword:string | undefined): boolean{
-    if(confPassword == passw)return true 
-    else return false
-  }
+ 
 }
