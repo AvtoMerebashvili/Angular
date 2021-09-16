@@ -37,7 +37,7 @@ export class DataManagerService {
     })
   }
 
-  deleteUser(Id:number){
+  deleteUser(Id:number | undefined){
     this.Users = this.Users.filter(user => user.id!=Id )
     this.cloneUsers = this.Users
   }

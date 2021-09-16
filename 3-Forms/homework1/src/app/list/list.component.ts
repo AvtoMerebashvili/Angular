@@ -10,8 +10,9 @@ import { User } from '../user';
 })
 export class ListComponent implements OnInit{
   updateStatus:boolean = false;
+  delete = false;
+  currentUser: User | undefined;
   users:User[]=[];
-
   constructor(
     private dataManager: DataManagerService
   ) { }
@@ -30,8 +31,20 @@ export class ListComponent implements OnInit{
     this.updateStatus=value;
   }
 
-  onDelete(id:number){
-    this.dataManager.deleteUser(id)
+  onDelete(user:User){
+    this.delete = true;
+    this.currentUser=user;
+  }
+
+  onDeleteSubmit(){
+    this.dataManager.deleteUser(this.currentUser?.id)
     this.users = this.dataManager.takeUsers();
+    this.delete = false;
+    this.currentUser = undefined;
+  }
+
+  onDeleteCancel(){
+    this.delete = false;
+    this.currentUser=undefined;
   }
 }
