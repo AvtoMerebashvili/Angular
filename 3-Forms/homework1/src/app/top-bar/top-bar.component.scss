@@ -1,0 +1,50 @@
+.topbar{
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 200px 140px 140px;
+    grid-template-rows: 1fr;
+    background-color: #8ab1b1;
+    align-items: center;
+    justify-items: center;
+    .nav{
+        width: 80%;
+        height: 80%;
+        background-color: #79979b;
+        border-radius: 15px;
+        text-align: center;
+        p{
+            text-align: center;
+            font-size: 25px;
+            margin: 18px 0 0 0;
+            font-weight: 600;
+            color: #e4e4e4;
+        }
+    }
+    .category{
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        a{
+            text-decoration: none;
+            p{
+                text-align: center;
+                color: #e4e4e4;
+                outline: none;
+                text-decoration: none;
+            }
+        }
+        
+        &:hover{
+            background-color:#89afb5;
+            p{
+                cursor: pointer;
+                color: #d6d6d6;
+            }
+        }
+    }
+
+}

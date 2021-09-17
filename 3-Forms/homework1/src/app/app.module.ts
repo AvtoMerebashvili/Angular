@@ -9,6 +9,8 @@ import { ListComponent } from './homewrok1/list/list.component';
 import { UpdateComponent } from './homewrok1/update/update.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { Homewrok1Component } from './homewrok1/homewrok1.component';
+import { RouterModule } from '@angular/router';
+import { Homework2Component } from './homework2/homework2.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,17 @@ import { Homewrok1Component } from './homewrok1/homewrok1.component';
     ListComponent,
     UpdateComponent,
     TopBarComponent,
-    Homewrok1Component
+    Homewrok1Component,
+    Homework2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    
+    RouterModule.forRoot([
+      {path: 'registration', component: Homewrok1Component},
+      {path: 'currency', component: Homework2Component}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
