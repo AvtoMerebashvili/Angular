@@ -11,6 +11,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { Homewrok1Component } from './homewrok1/homewrok1.component';
 import { RouterModule } from '@angular/router';
 import { Homework2Component } from './homework2/homework2.component';
+import { CurrencyComponent } from './homework2/currency/currency.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { Homework2Component } from './homework2/homework2.component';
     UpdateComponent,
     TopBarComponent,
     Homewrok1Component,
-    Homework2Component
+    Homework2Component,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'registration', component: Homewrok1Component},
       {path: 'currency', component: Homework2Component}
