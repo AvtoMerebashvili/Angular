@@ -11,7 +11,7 @@
                 </div>
                 <div class="input1 input">
                     <div class="line">
-                        <input type="text" (input)="firstInput($event)">
+                        <input type="text" [value]="$secondInput | async" (input)="firstInput($event)">
                         <select name="currency" id="" (change)="firstOption($event)">
                             <option value="">Choose</option>
                             <ng-container *ngFor="let current of data | async ">
@@ -23,7 +23,7 @@
             </div>
             <div class="rigthside">
                 <div class="input2 input">
-                    <input type="text" [value]="$firstInput | async">
+                    <input type="text" [value]="$firstInput | async" (input)="secondInput($event)">
                     <select name="currency" id="" (change)="secondtOption($event)">
                         <option value="">Choose</option>
                         <ng-container *ngFor="let current of data | async ">

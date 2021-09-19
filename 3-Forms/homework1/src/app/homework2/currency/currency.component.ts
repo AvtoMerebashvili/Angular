@@ -13,8 +13,9 @@ export class CurrencyComponent implements OnInit {
   data:any = {};
 
   $firstInput = new Subject<number>()
-  $firstOpt = new Subject();
-  $secondOpt = new Subject();
+  $secondInput = new Subject<number>()
+  $firstOpt = new Subject<number>();
+  $secondOpt = new Subject<number>();
 
   constructor(
     private httpData: HttpServiceService
@@ -32,8 +33,12 @@ export class CurrencyComponent implements OnInit {
   }
 
   firstInput(value:any){
-    let equiivalent = this.countMoney(value)
-    this.$firstInput.next(equiivalent)
+    let equivalent = this.countMoney(value,1)
+    this.$firstInput.next(equivalent)
+  }
+  secondInput(value:any){
+    let equivalent = this.countMoney(value,2)
+    this.$secondInput.next(equivalent)
   }
 
   firstOption(value:any){
@@ -44,10 +49,15 @@ export class CurrencyComponent implements OnInit {
     this.$secondOpt = value.target.value;
   }
 
-  countMoney(value:any){
-    let course = ((Number(this.$secondOpt) / Number(this.$firstOpt)));
-    let money = value.target.value*course
-    return money
+  countMoney(value:any,n:number){
+    let course;
+    if(n==1){
+      course = Number(this.$secondOpt) / Number(this.$firstOpt);
+    }else{
+      course = Number(this.$firstOpt)/ Number(this.$secondOpt);
+    }
+      let money = value.target.value*course
+      return money
   }
 
 
