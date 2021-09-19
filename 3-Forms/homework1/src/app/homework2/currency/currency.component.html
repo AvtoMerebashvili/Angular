@@ -7,25 +7,27 @@
         <div class="form">
             <div class="leftside">
                 <div class="button">
-                    <button>add</button>
+                    <button (click)="onAdd()">add</button>
                 </div>
                 <div class="input1 input">
-                    <div class="line">
-                        <input type="text" [value]="$secondInput | async" (input)="firstInput($event)">
-                        <select name="currency" id="" (change)="firstOption($event)">
-                            <option value="">Choose</option>
-                            <ng-container *ngFor="let current of data | async ">
-                                <option [value]="current.currencyValue">{{current.currencyName}}</option>
-                            </ng-container>
-                        </select>
-                    </div>
+                    <ng-container *ngFor="let num of inputFields">
+                        <div class="line">
+                            <input type="text" (input)="firstInput($event, num)">
+                            <select name="currency" id="" (change)="firstOption($event, num)">
+                                <option value="0">Choose</option>
+                                <ng-container *ngFor="let current of data | async ">
+                                    <option [value]="current.currencyValue">{{current.currencyName}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                    </ng-container>    
                 </div>
             </div>
             <div class="rigthside">
                 <div class="input2 input">
-                    <input type="text" [value]="$firstInput | async" (input)="secondInput($event)">
+                    <input type="text" [value]="equivalent">
                     <select name="currency" id="" (change)="secondtOption($event)">
-                        <option value="">Choose</option>
+                        <option value="0">Choose</option>
                         <ng-container *ngFor="let current of data | async ">
                             <option [value]="current.currencyValue">{{current.currencyName}}</option>
                         </ng-container>

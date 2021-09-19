@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpServiceService } from '../http-service.service'
+import { info } from "./infoobjectInterface";
 
 @Component({
   selector: 'app-currency',
@@ -9,16 +10,18 @@ import { HttpServiceService } from '../http-service.service'
   styleUrls: ['./currency.component.scss']
 })
 export class CurrencyComponent implements OnInit {
-  
   data:any = {};
+  inputFields:number[] = [0];
+  inputParams:info[] = [];
+  inputValues:number[] = [];
 
-  $firstInput = new Subject<number>()
-  $secondInput = new Subject<number>()
+  equivalent:number | string = "";
+
   $firstOpt = new Subject<number>();
   $secondOpt = new Subject<number>();
 
   constructor(
-    private httpData: HttpServiceService
+    private httpData: HttpServiceService,
   ) { }
 
   ngOnInit(): void {
@@ -32,33 +35,41 @@ export class CurrencyComponent implements OnInit {
       )
   }
 
-  firstInput(value:any){
-    let equivalent = this.countMoney(value,1)
-    this.$firstInput.next(equivalent)
-  }
-  secondInput(value:any){
-    let equivalent = this.countMoney(value,2)
-    this.$secondInput.next(equivalent)
+  onAdd(){
+    this.inputFields.push(this.inputFields.length);
   }
 
-  firstOption(value:any){
-    this.$firstOpt = value.target.value;
+  firstInput(value:any, num:number){
+    this.inputParams[num] = {...this.inputParams[num], amount: value.target.value}
+    this.checkAllFiedls()  
+  }
+ 
+  firstOption(value:any, num:number){
+    this.inputParams[num] = {...this.inputParams[num], course: value.target.value}  
+    this.checkAllFiedls()  
   }
 
   secondtOption(value:any){
     this.$secondOpt = value.target.value;
+    this.checkAllFiedls()
   }
 
-  countMoney(value:any,n:number){
-    let course;
-    if(n==1){
-      course = Number(this.$secondOpt) / Number(this.$firstOpt);
-    }else{
-      course = Number(this.$firstOpt)/ Number(this.$secondOpt);
+  private countMoney(){
+    if(typeof this.$secondOpt == 'string'){
+        this.inputParams.map((field,i)=>{
+          if(Object.keys(field).length == 2){
+            let course = Number(this.$secondOpt)/Number(field.course);
+            let money =  Number(field.amount)*course;
+            this.inputValues[i]=money;
+          }
+        })
+        this.inputValues.length > 0 ? this.equivalent = this.inputValues.reduce((sum, i) => sum+i) : this.inputValues
     }
-      let money = value.target.value*course
-      return money
   }
 
-
+  private checkAllFiedls(){
+    if(this.inputParams.length>0){
+      this.countMoney();
+    }
+  }
 }
