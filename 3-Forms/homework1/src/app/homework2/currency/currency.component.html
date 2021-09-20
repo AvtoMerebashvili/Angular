@@ -12,20 +12,31 @@
                 <div class="input1 input">
                     <ng-container *ngFor="let num of inputFields">
                         <div class="line">
-                            <input type="text" (input)="firstInput($event, num)">
-                            <select name="currency" id="" (change)="firstOption($event, num)">
-                                <option value="0">Choose</option>
-                                <ng-container *ngFor="let current of data | async ">
-                                    <option [value]="current.currencyValue">{{current.currencyName}}</option>
-                                </ng-container>
-                            </select>
+                            <ng-container *ngIf="num == 0">
+                                <input type="text" [value]="secondValue" (input)="firstInput($event, num)">
+                                <select name="currency" id="" (change)="firstOption($event, num)">
+                                    <option value="0">Choose</option>
+                                    <ng-container *ngFor="let current of data | async ">
+                                        <option [value]="current.currencyValue">{{current.currencyName}}</option>
+                                    </ng-container>
+                                </select>
+                            </ng-container>
+                            <ng-container *ngIf="num>0">
+                                <input type="text" (input)="firstInput($event, num)">
+                                <select name="currency" id="" (change)="firstOption($event, num)">
+                                    <option value="0">Choose</option>
+                                    <ng-container *ngFor="let current of data | async ">
+                                        <option [value]="current.currencyValue">{{current.currencyName}}</option>
+                                    </ng-container>
+                                </select>
+                            </ng-container>
                         </div>
                     </ng-container>    
                 </div>
             </div>
             <div class="rigthside">
                 <div class="input2 input">
-                    <input type="text" [value]="equivalent">
+                    <input type="text" (input)="secondInput($event)" [value]="equivalent">
                     <select name="currency" id="" (change)="secondtOption($event)">
                         <option value="0">Choose</option>
                         <ng-container *ngFor="let current of data | async ">
