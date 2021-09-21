@@ -14,7 +14,7 @@
             <div class="field">
                 <label for="passw"><span>*</span> Password:</label>
                 <div class="input">
-                    <input formControlName="password" id="passw" type="text">
+                    <input formControlName="password" id="passw" type="password">
                     <ng-container *ngIf="form.get('password')?.errors">
                         <P *ngIf="form.get('password')?.errors?.required">required</P>
                         <p *ngIf="form.get('password')?.errors?.pattern">Pattern is wrong</p>
@@ -24,7 +24,7 @@
             </div><div class="field">
                 <label for="confpassw"><span>*</span>Confirm Password:</label>
                 <div class="input">
-                    <input formControlName="confirmPassword" id="confpassw" type="text">
+                    <input formControlName="confirmPassword" id="confpassw" type="password">
                     <ng-container *ngIf="form.get('confirmPassword')?.errors">
                         <P *ngIf="form.get('confirmPassword')?.errors?.required">required</P>
                         <p *ngIf="form.get('confirmPassword')?.errors?.pattern">Pattern is wrong</p>
