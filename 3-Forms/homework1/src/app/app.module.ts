@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 import { Homework2Component } from './homework2/homework2.component';
 import { CurrencyComponent } from './homework2/currency/currency.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PeopleComponent } from './homework3/people/people.component';
+import { PeopleModule } from './homework3/people/people.module'
 
 @NgModule({
   declarations: [
@@ -31,10 +31,10 @@ import { PeopleComponent } from './homework3/people/people.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    PeopleModule,
     RouterModule.forRoot([
       {path: 'registration', component: Homewrok1Component},
       {path: 'currency', component: Homework2Component},
-      {path: 'people', component: PeopleComponent}
     ])
   ],
   providers: [],
