@@ -1,6 +1,6 @@
 import { Component,  OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-// import { EventEmitter } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApiServiceService } from '../../services/api-service.service';
 })
 export class RegistratorComponent implements OnInit {
 
-  // @Output() register = new EventEmitter()
+  @Output() register = new EventEmitter()
 
   form:FormGroup = new FormGroup({
     name: new FormControl(),
@@ -26,11 +26,12 @@ export class RegistratorComponent implements OnInit {
     let person = {
       employee_name:<string>this.form.value.name,
       employee_salary:<number>this.form.value.salary,
-      employee_age:<number>this.form.value.age
+      employee_age:<number>this.form.value.age,
+      profile_image:<string>""
     }
 
     this.form.reset()
-    // this.register.emit(person)
+    this.register.emit(person)
   }
 
   ngOnInit(): void {
