@@ -4,11 +4,11 @@ import { EventEmitter } from '@angular/core';
 import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
-  selector: 'app-registrator',
+  selector: 'app-employee-register',
   templateUrl: './registrator.component.html',
   styleUrls: ['./registrator.component.scss']
 })
-export class RegistratorComponent implements OnInit {
+export class EmployeeRegisterComponent implements OnInit {
 
   @Output() register = new EventEmitter()
 

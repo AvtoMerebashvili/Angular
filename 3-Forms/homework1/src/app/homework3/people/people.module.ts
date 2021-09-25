@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PeopleComponent } from './people.component';
 import { PersonComponent } from './person/person.component';
-import { RegistratorComponent } from './registrator/registrator.component';
+import { EmployeeRegisterComponent } from './employee-register/registrator.component';
 import { RouterModule } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service'
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     PeopleComponent,
     PersonComponent,
-    RegistratorComponent,
+    EmployeeRegisterComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports:[
     PeopleComponent,
     PersonComponent,
-    RegistratorComponent,
+    EmployeeRegisterComponent,
   ],
   providers:[
     ApiServiceService

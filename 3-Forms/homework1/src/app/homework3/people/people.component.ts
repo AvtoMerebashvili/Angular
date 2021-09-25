@@ -14,11 +14,7 @@ export class PeopleComponent implements OnInit {
   ) {    
   }
 
-
-
   onRegister(person: Person){
-    console.log("heheh")
-    console.log(person)
     this.http.create(person).subscribe()
   }
 
