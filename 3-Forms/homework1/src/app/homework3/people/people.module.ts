@@ -5,6 +5,8 @@ import { PersonComponent } from './person/person.component';
 import { RegistratorComponent } from './registrator/registrator.component';
 import { RouterModule } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service'
+import { ReactiveFormsModule } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { ApiServiceService } from '../services/api-service.service'
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    EventEmitter,
     RouterModule.forRoot([
       {path: 'people', component: PeopleComponent}
     ])

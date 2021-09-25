@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../enviroments/enviroment';
+import { Person } from '../interfaces/person';
 
 @Injectable()
 export class ApiServiceService { 
@@ -10,6 +11,10 @@ export class ApiServiceService {
   ) { }
 
   all(){
-  return this.http.get(environment.api + '/data')
+  return this.http.get<Person[]>(`${environment.api}/data`)
+  }
+
+  create(person:Person){
+    return this.http.post(`${environment.api}/data`, person);
   }
 }
