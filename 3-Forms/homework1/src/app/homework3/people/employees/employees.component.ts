@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person } from '../../interfaces/person';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
@@ -7,7 +6,7 @@ import { ApiServiceService } from '../../services/api-service.service';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.scss']
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesComponent implements OnInit, OnChanges {
 
   @Input() person: any;
   @Output() update = new EventEmitter();
@@ -16,6 +15,9 @@ export class EmployeesComponent implements OnInit {
   constructor(private http:ApiServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(){
   }
 
   getById(id:number | string | undefined){

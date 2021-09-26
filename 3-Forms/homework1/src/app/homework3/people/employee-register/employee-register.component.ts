@@ -35,7 +35,6 @@ export class EmployeeRegisterComponent implements OnInit, OnChanges {
 
       this.form.reset()
       this.updateEmployee?.update ? this.update.emit({...person, id:this.updateEmployee.id}) : this.register.emit(person)
-      window.alert("user registerd")
     }else{
       window.alert("user didn't registerd")
     }

@@ -1,8 +1,8 @@
 <div class="component">
     <ng-container *ngIf="employee$ | async as employee">
-        <img src="https://picsum.photos/200?random=" alt="">
-        <!-- <p class="name">{{employee.employee_name}}</p>
-        <p class="salary">{{employee.employee_salary}}</p>
-        <p class="age">{{employee.employee_age}}</p> -->
+        <img src="https://picsum.photos/200?random={{employee.id}}" alt="">
+        <p class="name">{{employee.employee_name}}</p>
+        <p class="salary">{{employee.employee_salary | currency}}</p>
+        <p class="age">{{employee.employee_age}} y/o</p>
     </ng-container>
 </div>

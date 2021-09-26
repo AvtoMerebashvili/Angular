@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service'
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { EmployeeComponent } from './employee/employee.component';
     EmployeesComponent,
     EmployeeRegisterComponent,
     EmployeeComponent,
+    PaginationComponent,
   ],
   imports: [
     CommonModule,

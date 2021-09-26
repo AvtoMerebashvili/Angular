@@ -1,0 +1,45 @@
+.component{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .people{
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: auto;
+        width: 100%;
+        .person{
+            width: 250px;
+            height: 350px;
+            margin: auto;
+            margin-bottom: 20px;
+            border: 1px solid rgb(218, 218, 218);
+            border-radius: 3px;
+            background-color: rgb(255, 250, 245);
+            box-sizing: border-box;
+        }
+    }
+    .paging{
+        display: flex;
+        button{
+            margin: 2px;
+            background-color: blanchedalmond;
+            border-radius: 3px;
+            border: 1px solid rgb(233, 224, 224);
+            &:hover{
+                cursor: pointer;
+            }
+            &:focus{
+                background-color: rgb(240, 203, 147);
+            }
+            &:active{
+                background-color: rgb(240, 203, 147);
+            }
+            &:checked{
+                background-color: rgb(240, 203, 147);
+            }
+        }
+    }
+}

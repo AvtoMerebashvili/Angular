@@ -11,11 +11,7 @@ import { ApiServiceService } from '../../services/api-service.service';
 export class EmployeeComponent implements OnInit {
 
   employee$ = this.http.$current
-  employee: Person ={
-    employee_name: "",
-    employee_age: 0,
-    employee_salary: 0
-  };
+  
   constructor(private http:ApiServiceService) { }
 
   ngOnInit(): void {

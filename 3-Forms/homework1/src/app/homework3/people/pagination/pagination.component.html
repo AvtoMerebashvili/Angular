@@ -1,0 +1,12 @@
+<div class="component">
+    <div class="people">
+        <div class="person" *ngFor="let person of show">
+            <app-employees [person]="person" (update)="onUpdate($event)" (delete)="onDelete($event)"></app-employees>
+        </div>
+    </div>
+    <div class="paging">
+        <ng-container *ngFor="let page of pages">
+            <button (click)="clicked(page-1)">{{page}}</button>
+        </ng-container>
+    </div>
+</div>
