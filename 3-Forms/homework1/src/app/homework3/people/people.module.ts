@@ -1,29 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PeopleComponent } from './people.component';
-import { PersonComponent } from './person/person.component';
-import { EmployeeRegisterComponent } from './employee-register/registrator.component';
+import { EmployeesComponent } from './employees/employees.component'
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { RouterModule } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service'
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
   declarations: [
     PeopleComponent,
-    PersonComponent,
+    EmployeesComponent,
     EmployeeRegisterComponent,
+    EmployeeComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'people', component: PeopleComponent}
+      {path: 'people', component: PeopleComponent},
+      {path: 'employee', component: EmployeeComponent}
     ])
   ],
   exports:[
     PeopleComponent,
-    PersonComponent,
+    EmployeesComponent,
     EmployeeRegisterComponent,
   ],
   providers:[

@@ -3,5 +3,6 @@ export interface Person{
     employee_name: string,
     employee_salary: number,
     employee_age: number,
-    profile_image?: string
+    profile_image?: string,
+    update?: boolean
 }

@@ -1,0 +1,39 @@
+.person{
+    width: 250px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        justify-content: space-evenly;
+        p{
+            color: violet;
+            height: 0px;
+        }
+    }      
+    .buttons{
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        button{
+            border: none;
+            background-color: #9c27b0;
+            border-radius: 3px;
+            color: whitesmoke;
+            width: 70px;
+            height: 24px;
+            &:hover{
+                background-color: #8a239c;
+                cursor: pointer;
+            }
+        }
+    }
+      
+}
