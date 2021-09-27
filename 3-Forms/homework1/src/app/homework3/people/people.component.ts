@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { Person } from '../interfaces/person';
 import { ApiServiceService } from '../services/api-service.service';
 import { FormServiceService } from '../services/form-service.service';
@@ -11,7 +11,11 @@ import { FormServiceService } from '../services/form-service.service';
 })
 export class PeopleComponent implements OnInit, OnChanges {
   
-  people$ = this.http.all();
+  people$ = this.http.all()
+    .pipe(
+      map(response => response.data
+      )
+    );
 
   constructor(
     private http: ApiServiceService,
@@ -20,7 +24,7 @@ export class PeopleComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.getUpdatedData()
+    this.getUpdatedData()    
   }
 
   ngOnChanges(){
@@ -28,7 +32,9 @@ export class PeopleComponent implements OnInit, OnChanges {
   }  
 
   onDelete(id:number){
-    this.http.delete(id).subscribe()
+    this.http.delete(id).subscribe(
+      response => {console.log(response)}
+    )
     // this.getUpdatedData()
   }
 
@@ -37,7 +43,7 @@ export class PeopleComponent implements OnInit, OnChanges {
   }
 
   private getUpdatedData(){
-  this.people$ = this.http.all()
+  // this.people$ = this.http.all()
   }
 
 }

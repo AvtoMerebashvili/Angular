@@ -23,6 +23,7 @@ export class EmployeeRegisterComponent implements OnInit, OnChanges {
   }
 
   onRegister(person: Person){
+    console.log(person)
     this.http.create(person).subscribe()
     window.alert("user successfully registered")
   }

@@ -9,7 +9,7 @@ import { Person } from '../interfaces/person';
 @Injectable()
 export class ApiServiceService { 
 
-  $current:Subject<Person> = new Subject();
+  $current:Subject<body> = new Subject();
 
   constructor(
     private http:HttpClient,
@@ -17,27 +17,27 @@ export class ApiServiceService {
 
   one(id:number | string | undefined){
     console.log(id)
-  let current = this.http.get<Person>(`${environment.api}/data/${id}`)
+  let current = this.http.get<body>(`${environment.api}/employee/${id}`)
   current.subscribe(value =>{
     this.$current.next(value)
   })
   this.$current = new Subject()
-  return this.http.get<Person>(`${environment.api}/data/${id}`)
+  return this.http.get<Person>(`${environment.api}/employee/${id}`)
   }
 
   all(){
-  return this.http.get<Person[]>(`${environment.api}/data`)
+  return this.http.get<body>(`${environment.api}/employees`)
   }
 
   create(person:Person){
-    return this.http.post<Person>(`${environment.api}/data`, person);
+    return this.http.post<Person>(`${environment.api}/create`, person);
   }
 
   update(person:Person){
-    return this.http.put<Person>(`${environment.api}/data/${person.id}`,person)
+    return this.http.put<Person>(`${environment.api}/update/${person.id}`,person)
   }
 
   delete(id: number){
-    return this.http.delete<Person>(`${environment.api}/data/${id}`)
+    return this.http.delete<Person>(`${environment.api}/delete/${id}`)
   }
 }

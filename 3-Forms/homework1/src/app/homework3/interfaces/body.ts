@@ -2,6 +2,6 @@ import { Person } from "./person";
 
 export interface body{
     status: string,
-    data: Person[],
+    data: Person,
     message: string
 }

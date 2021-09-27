@@ -37,10 +37,10 @@ export class FormComponent implements OnInit, OnChanges  {
   submit(){
     if(this.form.valid){
       let person = {
-        employee_name:<string>this.form.value.name,
-        employee_salary:<number>this.form.value.salary,
-        employee_age:<number>this.form.value.age,
-        profile_image:<string>""
+        "employee_name":<string>(this.form.value.name).toString(),
+        "employee_salary":<string>(this.form.value.salary).toString(),
+        "employee_age":<string>(this.form.value.age).toString(),
+        "profile_image":<string>""
       }
       
       this.form.reset()
