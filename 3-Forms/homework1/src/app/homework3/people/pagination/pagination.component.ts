@@ -8,11 +8,10 @@ import { Person } from '../../interfaces/person';
 })
 export class PaginationComponent implements OnInit {
 
-  pages:any[]= [1];
+  pages:number[]= [];
   show:Person[] = [];
 
   @Input() people: any;
-  @Output() update = new EventEmitter()
   @Output() delete = new EventEmitter();
 
   constructor() { }
@@ -24,21 +23,22 @@ export class PaginationComponent implements OnInit {
     }
   }
 
-  onDelete(value:Person){
-    this.delete.emit(value)
+  onDelete(value:number){
+    let index:number = 0;
+    this.people.map((person:Person, i:number, array:Person[] ) => {
+        if(person?.id == value){
+          array.splice(i,1);
+          index = i;
+        }
+    })
+    this.createShow(this.getPage(index))
     this.popPages()
+    this.delete.emit(value)
   }
 
-  onUpdate(value:Person){
-    this.update.emit(value)
-    this.createPages()
-  }
 
   clicked(num:number){
-    this.show = [];
-    for(let i=num*4; i<=num*4+3; i++){
-      if(this.people[i])this.show.push(this.people[i])
-    }
+    this.createShow(num)
   }
 
   private createPages(){
@@ -55,5 +55,19 @@ export class PaginationComponent implements OnInit {
         this.pages.pop()
       }
     } 
+  }
+
+  private createShow(num: number){
+    this.show = [];
+    for(let i=num*4; i<=num*4+3; i++){
+      if(this.people[i])this.show.push(this.people[i])
+    }
+  }
+
+  private getPage(num:number){
+    while(num%4 != 0){
+      num--;
+    }
+    return num/4
   }
 }

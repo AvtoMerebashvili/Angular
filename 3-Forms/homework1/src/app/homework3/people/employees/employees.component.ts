@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Person } from '../../interfaces/person';
 import { ApiServiceService } from '../../services/api-service.service';
+import { FormServiceService } from '../../services/form-service.service';
 
 @Component({
   selector: 'app-employees',
@@ -9,15 +11,21 @@ import { ApiServiceService } from '../../services/api-service.service';
 export class EmployeesComponent implements OnInit, OnChanges {
 
   @Input() person: any;
-  @Output() update = new EventEmitter();
   @Output() delete = new EventEmitter();
 
-  constructor(private http:ApiServiceService) { }
+  constructor(
+    private http:ApiServiceService,
+    private form: FormServiceService
+    ) { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(){
+  }
+  
+  onUpdate(person:Person){
+    this.form.call(person)
   }
 
   getById(id:number | string | undefined){

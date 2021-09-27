@@ -14,7 +14,7 @@
         box-sizing: border-box;
         justify-content: space-evenly;
         p{
-            color: violet;
+            color: steelblue;;
             height: 0px;
         }
     }      
@@ -24,13 +24,13 @@
         justify-content: space-evenly;
         button{
             border: none;
-            background-color: #9c27b0;
+            background-color: steelblue;;
             border-radius: 3px;
             color: whitesmoke;
             width: 70px;
             height: 24px;
             &:hover{
-                background-color: #8a239c;
+                background-color: rgb(68, 109, 143);
                 cursor: pointer;
             }
         }

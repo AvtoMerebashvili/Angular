@@ -8,6 +8,8 @@ import { ApiServiceService } from '../services/api-service.service'
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -17,13 +19,17 @@ import { PaginationComponent } from './pagination/pagination.component';
     EmployeeRegisterComponent,
     EmployeeComponent,
     PaginationComponent,
+    EmployeeUpdateComponent,
+    FormComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'people', component: PeopleComponent},
-      {path: 'employee', component: EmployeeComponent}
+      {path: 'employees', component: PeopleComponent},
+      {path: 'employee', component: EmployeeComponent},
+      {path: 'employee/register', component: EmployeeRegisterComponent},
+      {path: 'update', component: EmployeeUpdateComponent}
     ])
   ],
   exports:[

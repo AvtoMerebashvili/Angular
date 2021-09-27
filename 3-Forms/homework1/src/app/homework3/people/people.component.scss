@@ -20,12 +20,18 @@
             width: 100%;
         }
     }
-    .createForm{
-        width: 350px;
-        height: 250px;
-        background: #eef7ff;
-        border-radius: 5px;
-        margin: 20px;
+    .button{
+        button{
+            width: 90px;
+            height: 40px;
+            background: #7ac0ed;
+            border: 1px solid black;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            &:hover{
+                background-color: #7f8eb6;
+                cursor: pointer;
+            }
+        }
     }
-    
 }
