@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { find } from 'rxjs/operators';
-import { User } from './user';
+import { User } from '../user';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class DataManagerService {
     return this.cloneUsers;
   }
 
-  getUser(Id:number){
+  setUser(Id:number){
     this.currentUser = this.cloneUsers.find(user => user.id == Id)
   }
 

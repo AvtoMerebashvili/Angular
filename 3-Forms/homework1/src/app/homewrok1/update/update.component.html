@@ -1,17 +1,13 @@
-<ng-container *ngIf="edit">
-<div class="display">
-</div>    
+    <div class="display">
+    </div>    
     <div class="update" >
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" action="">
-            <input type="text" formControlName="mail" name="" id="">
-            <input type="password" formControlName="password" name="" id="">
-            <input type="password" formControlName="confirmPassword"  name="" id="">
-            <input type="text" formControlName="nickname" name="" id="">
-            <input type="text" formControlName="phoneNumber"  name="" id="">
-            <input type="text" formControlName="website" name="" id="">
+        <form [formGroup]="form" >
+            <input type="text" formControlName="mail" >
+            <input type="password" formControlName="password" >
+            <input type="password" formControlName="confirmPassword" >
+            <input type="text" formControlName="nickname" >
+            <input type="text" formControlName="phoneNumber" >
+            <input type="text" formControlName="website" >
             <button type="submit">Submit</button>
         </form>
     </div>
-</ng-container>
-
-

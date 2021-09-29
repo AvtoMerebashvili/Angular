@@ -1,14 +1,29 @@
 <div class="topbar">
-    <div class="nav">
-        <p>Navigation</p>
+    <div class="leftside style">
+        <div class="nav">
+            <p>Navigation</p>
+        </div>
+        <div class="category">
+            <a routerLink="/registration"><p>Register page</p></a>
+        </div>
+        <div class="category">
+            <a routerLink="LogIn"><p>Log in</p></a>
+        </div>
+        <ng-container *ngIf="token | async">
+            <div class="category">
+                <a routerLink="Users"><p>Users</p></a>
+            </div>
+        </ng-container>
+        <div class="category">
+            <a routerLink="/currency"><p>Currency page</p></a>
+        </div>
+        <div class="category">
+            <a routerLink="/employees"><p>dataBase</p></a>
+        </div>
     </div>
-    <div class="category">
-        <a routerLink="/registration"><p>Register page</p></a>
-    </div>
-    <div class="category">
-        <a routerLink="/currency"><p>Currency page</p></a>
-    </div>
-    <div class="category">
-        <a routerLink="/employees"><p>dataBase</p></a>
+    <div class="rightside style">
+        <div class="category">
+            <a routerLink="/LogIn" (click)="onLogOut()"><p>Log Out</p></a>
+        </div>
     </div>
 </div>

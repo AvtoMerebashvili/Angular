@@ -1,8 +1,5 @@
 <div class="page">
     <div class="registration">
-        <app-registration ></app-registration>
-    </div>
-    <div class="list">
-        <app-list></app-list>
+        <app-registration (register)="onRegister($event)"></app-registration>
     </div>
 </div>

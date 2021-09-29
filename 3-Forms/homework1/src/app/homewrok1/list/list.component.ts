@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataManagerService } from '../data-manager.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DataManagerService } from '../services/data-manager.service';
+import { HttpService } from '../services/http.service';
 import { User } from '../user';
 
 
@@ -9,26 +10,27 @@ import { User } from '../user';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit{
+
   updateStatus:boolean = false;
   delete = false;
   currentUser: User | undefined;
-  users:User[]=[];
+
+  users$ = this.http.all()
+
+  @Input() users:User[] | undefined;
+  @Output() change = new EventEmitter()
+  
   constructor(
-    private dataManager: DataManagerService
+    private dataManager: DataManagerService,
+    private http: HttpService
   ) { }
 
   ngOnInit(): void {
-    this.users = this.dataManager.takeUsers();
-    
   }
 
-  onEdit(id:number){
+  onEdit(user:User){
     this.updateStatus=true;
-    this.dataManager.getUser(id)
-  }
-
-  onSubmit(value:boolean){
-    this.updateStatus=value;
+    this.currentUser = user;
   }
 
   onDelete(user:User){
@@ -37,14 +39,22 @@ export class ListComponent implements OnInit{
   }
 
   onDeleteSubmit(){
-    this.dataManager.deleteUser(this.currentUser?.id)
-    this.users = this.dataManager.takeUsers();
+    if(this.currentUser) this.http.delete(this.currentUser.id).subscribe()
+    this.users = this.users?.filter(user => user.id == this.currentUser?.id ? undefined : user) 
     this.delete = false;
     this.currentUser = undefined;
+    this.change.emit()
   }
 
   onDeleteCancel(){
     this.delete = false;
     this.currentUser=undefined;
   }
+
+
+  onSubmit(value:boolean){
+    this.updateStatus=value;
+    this.change.emit()
+  }
+
 }

@@ -7,4 +7,5 @@ export interface User {
     website: any,
     checkBox: boolean
     id:number
+    token: string
 }

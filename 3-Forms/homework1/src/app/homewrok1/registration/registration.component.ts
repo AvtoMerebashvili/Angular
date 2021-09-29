@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { tap } from "rxjs/operators";
-import { DataManagerService } from '../data-manager.service';
+import { DataManagerService } from '../services/data-manager.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,6 +12,8 @@ import { DataManagerService } from '../data-manager.service';
 export class RegistrationComponent implements OnInit{
 
   disableStatus: boolean | undefined = true;
+
+  @Output() register = new EventEmitter()
   
   form:FormGroup = new FormGroup({
     mail: new FormControl('', [Validators.pattern('[a-zA-Z0-9]+\\@[a-zA-Z]+(\\.[a-zA-Z]+)+$'), Validators.required]),
@@ -23,7 +26,7 @@ export class RegistrationComponent implements OnInit{
   });
   
   constructor(
-    private dataService: DataManagerService
+    private dataService: DataManagerService,
   ) {
   }
 
@@ -38,7 +41,7 @@ export class RegistrationComponent implements OnInit{
 
   onSubmit(){
     if(this.form.valid){
-      this.dataService.addUser(this.form.value);
+      this.register.emit(this.form.value)
       this.form.reset()
     }else{
       window.alert("user didn't registered becouse of invalid fields")

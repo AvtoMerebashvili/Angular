@@ -13,7 +13,10 @@ import { RouterModule } from '@angular/router';
 import { Homework2Component } from './homework2/homework2.component';
 import { CurrencyComponent } from './homework2/currency/currency.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PeopleModule } from './homework3/people/people.module'
+import { PeopleModule } from './homework3/people/people.module';
+import { UserComponent } from './homewrok1/list/user/user.component';
+import { LoginComponent } from './homewrok1/login/login.component';
+import { LoginGuard } from './homewrok1/guards/login.guard';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { PeopleModule } from './homework3/people/people.module'
     Homewrok1Component,
     Homework2Component,
     CurrencyComponent,
+    UserComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,12 @@ import { PeopleModule } from './homework3/people/people.module'
     RouterModule.forRoot([
       {path: 'registration', component: Homewrok1Component},
       {path: 'currency', component: Homework2Component},
+      {path: 'LogIn', component: LoginComponent},
+      {
+        path: 'Users', 
+        component: ListComponent,
+        canActivate: [LoginGuard]
+      }
     ])
   ],
   providers: [],

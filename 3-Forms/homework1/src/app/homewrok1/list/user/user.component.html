@@ -1,0 +1,13 @@
+<ng-container *ngIf="user">
+    <div class="user" >
+        <p>Mail:</p> <p class='val'>{{user.mail}}</p>
+        <p>Passw:</p> <p class='val'>{{user.password}}</p>
+        <p>Nick:</p> <p class='val'>{{user.nickname}}</p>
+        <p>Phone:</p> <p class='val'>{{user.phoneNumber}}</p>
+        <p>Web:</p> <p class='val'>{{user.website}}</p>
+        <div class="features">
+            <button (click)="edit.emit(user)">Update</button>
+            <button (click)="delete.emit(user)">Remove</button>
+        </div>
+    </div>  
+</ng-container>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DataManagerService } from '../data-manager.service';
+import { DataManagerService } from '../services/data-manager.service';
+import { HttpService } from '../services/http.service';
 import { User } from '../user';
 
 @Component({
@@ -10,7 +11,8 @@ import { User } from '../user';
 })
 export class UpdateComponent implements OnInit, OnChanges {
 
-  @Input() edit:boolean = false;
+  @Input() user:User | undefined;
+  @Input() edit:boolean | undefined;
   @Output() submited = new EventEmitter()
 
   form:FormGroup = new FormGroup({
@@ -23,32 +25,35 @@ export class UpdateComponent implements OnInit, OnChanges {
   });
 
   constructor(
-     private dataManager: DataManagerService
+     private dataManager: DataManagerService,
+     private http: HttpService,
   ) { }
 
   ngOnInit(): void {
+    // console.log(this.edit)
   }
 
   ngOnChanges(){
     this.form.patchValue({
-      mail: this.dataManager.currentUser?.mail,
-      password: this.dataManager.currentUser?.password,
-      confirmPassword: this.dataManager.currentUser?.confirmPassword,
-      nickname: this.dataManager.currentUser?.nickname,
-      phoneNumber: this.dataManager.currentUser?.phoneNumber,
-      website: this.dataManager.currentUser?.website
+      mail: this.user?.mail,
+      password: this.user?.password,
+      confirmPassword: this.user?.confirmPassword,
+      nickname: this.user?.nickname,
+      phoneNumber: this.user?.phoneNumber,
+      website: this.user?.website
     })
   }
 
   onSubmit(){
+    console.log(this.form.value)
     let passwordEquality = this.dataManager.passwordCheck(this.form.value.password, this.form.value.confirmPassword) ? true : false
     if(this.form.valid && passwordEquality){
-      this.dataManager.updateUser(this.form.value,this.dataManager.currentUser?.id);
+      this.http.update(this.form.value)
       this.form.reset()
       this.edit = false
       this.submited.emit(this.edit)
     }else{
       window.alert("user didn't updated becouse of invalid fields")
     }
-  }
+   }
 }
