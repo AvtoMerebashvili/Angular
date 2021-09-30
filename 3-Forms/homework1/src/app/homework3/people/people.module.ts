@@ -27,9 +27,9 @@ import { FormComponent } from './form/form.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'employees', component: PeopleComponent},
-      {path: 'employee', component: EmployeeComponent},
+      {path: 'employees/:id', component: EmployeeComponent},
       {path: 'employee/register', component: EmployeeRegisterComponent},
-      {path: 'update', component: EmployeeUpdateComponent}
+      {path: 'employees/:id', component: EmployeeUpdateComponent}
     ])
   ],
   exports:[

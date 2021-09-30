@@ -30,7 +30,7 @@ export class UserComponent implements OnInit, OnChanges {
     if(user.token == currentToken){
       this.edit.emit(user)
     }else{
-      window.alert("you haven't permision to edit other user")
+      window.alert(`you haven't permision to edit other user`)
     }
   }
 

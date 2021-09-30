@@ -212,6 +212,16 @@
       "checkBox": true,
       "token": "kRAiIJQAAWSGtmeIRcbEcEQuo",
       "id": 13
+    },
+    {
+      "mail": "mesame@gmail.com",
+      "password": "avto1234",
+      "confirmPassword": "avto1234",
+      "nickname": "shota2",
+      "phoneNumber": "+380123456789",
+      "website": "dato.ru",
+      "id": 14,
+      "token": "GbTueOCQRzukeHppOMrCOnRhv"
     }
   ]
 }

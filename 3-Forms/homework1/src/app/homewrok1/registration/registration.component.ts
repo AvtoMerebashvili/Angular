@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit{
   @Output() register = new EventEmitter()
   
   form:FormGroup = new FormGroup({
-    mail: new FormControl('', [Validators.pattern('[a-zA-Z0-9]+\\@[a-zA-Z]+(\\.[a-zA-Z]+)+$'), Validators.required]),
+    mail: new FormControl('', [Validators.pattern('[a-zA-Z0-9.]+\\@[a-zA-Z]+(\\.[a-zA-Z]+)+$'), Validators.required]),
     password: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') ,Validators.required]) ,
     confirmPassword: new FormControl('',[Validators.minLength(7),Validators.pattern('^[a-zA-Z0-9]*$') , Validators.required]),
     nickname: new FormControl('', [Validators.pattern('^[a-zA-Z0-9\\-]*$'), Validators.required]),
