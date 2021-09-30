@@ -22,7 +22,7 @@ export class AuthService {
             let user = users.filter(user => user.mail == mail && user.password == password)[0];
             if(user){
               localStorage.setItem("token", user.token);
-              this.observables.$token.next(user.token)
+              this.observables.token = user.token;
               this.router.navigate(['Users'])
             }else{
               alert('invalid username or password')

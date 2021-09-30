@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataManagerService } from '../services/data-manager.service';
 import { HttpService } from '../services/http.service';
+import { ObservablesService } from '../services/observables.service';
 import { User } from '../user';
 
 
@@ -17,15 +19,17 @@ export class ListComponent implements OnInit{
 
   users$ = this.http.all()
 
-  @Input() users:User[] | undefined;
   @Output() change = new EventEmitter()
   
   constructor(
     private dataManager: DataManagerService,
-    private http: HttpService
+    private http: HttpService,
+    private router: Router,
+    private observable: ObservablesService
   ) { }
 
   ngOnInit(): void {
+    
   }
 
   onEdit(user:User){
@@ -40,10 +44,13 @@ export class ListComponent implements OnInit{
 
   onDeleteSubmit(){
     if(this.currentUser) this.http.delete(this.currentUser.id).subscribe()
-    this.users = this.users?.filter(user => user.id == this.currentUser?.id ? undefined : user) 
+    // this.users = this.users?.filter(user => user.id == this.currentUser?.id ? undefined : user) 
     this.delete = false;
     this.currentUser = undefined;
     this.change.emit()
+    localStorage.clear()
+    this.observable.token = localStorage.getItem('token')
+    this.router.navigate(['/LogIn'])
   }
 
   onDeleteCancel(){
@@ -52,8 +59,9 @@ export class ListComponent implements OnInit{
   }
 
 
-  onSubmit(value:boolean){
-    this.updateStatus=value;
+  onSubmit(value:User){
+    this.currentUser = value;
+    this.updateStatus=false;
     this.change.emit()
   }
 

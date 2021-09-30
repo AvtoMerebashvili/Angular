@@ -3,17 +3,22 @@
         <div class="nav">
             <p>Navigation</p>
         </div>
-        <div class="category">
-            <a routerLink="/registration"><p>Register page</p></a>
-        </div>
-        <div class="category">
-            <a routerLink="LogIn"><p>Log in</p></a>
-        </div>
-        <ng-container *ngIf="token | async">
+
+        <ng-container *ngIf="token != null; else elseBlock">
             <div class="category">
                 <a routerLink="Users"><p>Users</p></a>
+            </div> 
+        </ng-container>  
+        
+        <ng-template #elseBlock> 
+            <div class="category">
+                <a routerLink="/registration"><p>Register page</p></a>
             </div>
-        </ng-container>
+            <div class="category">
+                <a routerLink="LogIn"><p>Log in</p></a>
+            </div>
+        </ng-template>    
+        
         <div class="category">
             <a routerLink="/currency"><p>Currency page</p></a>
         </div>

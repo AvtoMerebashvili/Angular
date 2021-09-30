@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { tap } from "rxjs/operators";
 import { DataManagerService } from '../services/data-manager.service';
 import { HttpService } from '../services/http.service';
@@ -27,6 +28,7 @@ export class RegistrationComponent implements OnInit{
   
   constructor(
     private dataService: DataManagerService,
+    private router: Router
   ) {
   }
 
@@ -43,6 +45,7 @@ export class RegistrationComponent implements OnInit{
     if(this.form.valid){
       this.register.emit(this.form.value)
       this.form.reset()
+      this.router.navigate(['/LogIn'])
     }else{
       window.alert("user didn't registered becouse of invalid fields")
     }

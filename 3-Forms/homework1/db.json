@@ -171,48 +171,47 @@
   ],
   "users": [
     {
-      "mail": "pirveli@mail.ru",
+      "mail": "pirveli@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
       "nickname": "pirveli",
-      "phoneNumber": "+380666666666",
+      "phoneNumber": "+380123456789",
       "website": "dato.ru",
       "checkBox": true,
-      "token": "HbCgDfuChijEblcNHnysnpwbp",
-      "id": 1
+      "token": "puFwEqFZGcYtdFGcAjrKKttEt",
+      "id": 10
     },
     {
-      "mail": "meore@mail.ru",
+      "mail": "meore@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
-      "nickname": "meore",
-      "phoneNumber": "+380666666669",
-      "website": "dato.ru",
-      "checkBox": true,
-      "token": "NNmwraPhARkIBcIlJiQjSuBjh",
-      "id": 2
-    },
-    {
-      "mail": "mesame@gmail.com",
-      "password": "avto1234",
-      "confirmPassword": "avto1234",
-      "nickname": "mesame",
-      "phoneNumber": "+380666666666",
-      "website": "dato.ru",
-      "checkBox": true,
-      "token": "lkMrMqQbLipkCHeEQzdYqhyOv",
-      "id": 3
+      "nickname": "meoreUSer",
+      "phoneNumber": "+380123456789",
+      "website": "meore.com",
+      "id": 11,
+      "token": "GuuiInhytlRwHEnEpeqVHViKT"
     },
     {
       "mail": "meotxe@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
-      "nickname": "shota2",
+      "nickname": "meotxe",
+      "phoneNumber": "+380123456789",
+      "website": "dato.ru",
+      "checkBox": true,
+      "token": "HAAGYPHyaqpfZiQJyHZECBplQ",
+      "id": 12
+    },
+    {
+      "mail": "mexute@gmail.com",
+      "password": "avto1234",
+      "confirmPassword": "avto1234",
+      "nickname": "mexute",
       "phoneNumber": "+380666666666",
       "website": "dato.ru",
       "checkBox": true,
-      "token": "iDihQocCvEQBRSUJFDtfPNEzk",
-      "id": 4
+      "token": "kRAiIJQAAWSGtmeIRcbEcEQuo",
+      "id": 13
     }
   ]
 }

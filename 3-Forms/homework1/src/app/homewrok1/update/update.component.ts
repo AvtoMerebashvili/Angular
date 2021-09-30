@@ -12,7 +12,6 @@ import { User } from '../user';
 export class UpdateComponent implements OnInit, OnChanges {
 
   @Input() user:User | undefined;
-  @Input() edit:boolean | undefined;
   @Output() submited = new EventEmitter()
 
   form:FormGroup = new FormGroup({
@@ -30,7 +29,6 @@ export class UpdateComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    // console.log(this.edit)
   }
 
   ngOnChanges(){
@@ -45,13 +43,14 @@ export class UpdateComponent implements OnInit, OnChanges {
   }
 
   onSubmit(){
-    console.log(this.form.value)
     let passwordEquality = this.dataManager.passwordCheck(this.form.value.password, this.form.value.confirmPassword) ? true : false
     if(this.form.valid && passwordEquality){
-      this.http.update(this.form.value)
+      let updatedUser = this.form.value;
+      updatedUser.id = this.user?.id
+      updatedUser.token = this.user?.token
+      this.http.update(updatedUser).subscribe()
       this.form.reset()
-      this.edit = false
-      this.submited.emit(this.edit)
+      this.submited.emit(updatedUser)
     }else{
       window.alert("user didn't updated becouse of invalid fields")
     }

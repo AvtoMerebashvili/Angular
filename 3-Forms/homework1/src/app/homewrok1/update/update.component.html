@@ -1,7 +1,7 @@
     <div class="display">
     </div>    
     <div class="update" >
-        <form [formGroup]="form" >
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <input type="text" formControlName="mail" >
             <input type="password" formControlName="password" >
             <input type="password" formControlName="confirmPassword" >

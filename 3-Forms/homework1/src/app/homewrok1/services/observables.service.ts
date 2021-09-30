@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObservablesService {
 
-  $token = new Subject<string | undefined | null>()
-  token$ = this.$token.asObservable()
+  token:null | string = null;
 
-  constructor() { }
+  constructor() { 
+    this.token = localStorage.getItem("token")
+  }
 }

@@ -9,14 +9,16 @@ import { ObservablesService } from '../homewrok1/services/observables.service';
 })
 export class TopBarComponent implements OnInit, OnChanges {
 
-  token: any = this.observables.token$;
+  get token(){
+    return this.observables.token;
+  }  
 
   constructor(
     private observables: ObservablesService
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-    this.observables.$token.next(localStorage.getItem('token'))
+  ngOnInit(): void {         
+    this.observables.token = localStorage.getItem('token')
   }
 
   ngOnChanges(){
@@ -24,7 +26,7 @@ export class TopBarComponent implements OnInit, OnChanges {
 
   onLogOut(){
     localStorage.clear()
-    this.observables.$token.next(undefined)
+    this.observables.token  = null
   }
 
 }

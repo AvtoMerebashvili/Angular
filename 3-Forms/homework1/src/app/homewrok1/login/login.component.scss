@@ -1,0 +1,38 @@
+.component{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        input{
+            width: 300px;
+            height: 30px;
+            margin: 3px;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid rgb(218, 218, 218);
+            outline: none;
+            box-sizing: border-box;
+            padding: 10px;
+            color: rgb(119, 118, 118);
+        }
+        button{
+            width: 100px;
+            height: 35px;
+            border-radius: 3px;
+            outline: none;
+            margin: auto;
+            background-color: #c6e9ff;
+            border: none;
+            font-family: "diploma";
+            &:hover{
+                cursor: pointer;
+                background-color: #69acd6;
+            }
+        }
+
+    }
+
+}

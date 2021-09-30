@@ -29,7 +29,6 @@ export class HttpService {
   }
 
   update(user:User | undefined){
-    console.log(user)
     return this.http.put(`${environment.api}/users/${user?.id}`, user)
   }
 
