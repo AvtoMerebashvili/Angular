@@ -176,16 +176,15 @@
       "confirmPassword": "avto1234",
       "nickname": "pirveli",
       "phoneNumber": "+380123456789",
-      "website": "dato.ru",
-      "checkBox": true,
-      "token": "puFwEqFZGcYtdFGcAjrKKttEt",
-      "id": 10
+      "website": "pirveli.com",
+      "id": 10,
+      "token": "puFwEqFZGcYtdFGcAjrKKttEt"
     },
     {
       "mail": "meore@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
-      "nickname": "meoreUSer",
+      "nickname": "meore",
       "phoneNumber": "+380123456789",
       "website": "meore.com",
       "id": 11,
@@ -197,10 +196,9 @@
       "confirmPassword": "avto1234",
       "nickname": "meotxe",
       "phoneNumber": "+380123456789",
-      "website": "dato.ru",
-      "checkBox": true,
-      "token": "HAAGYPHyaqpfZiQJyHZECBplQ",
-      "id": 12
+      "website": "meotxe.com",
+      "id": 12,
+      "token": "HAAGYPHyaqpfZiQJyHZECBplQ"
     },
     {
       "mail": "mexute@gmail.com",
@@ -208,20 +206,29 @@
       "confirmPassword": "avto1234",
       "nickname": "mexute",
       "phoneNumber": "+380666666666",
-      "website": "dato.ru",
-      "checkBox": true,
-      "token": "kRAiIJQAAWSGtmeIRcbEcEQuo",
-      "id": 13
+      "website": "mexute.com",
+      "id": 13,
+      "token": "kRAiIJQAAWSGtmeIRcbEcEQuo"
     },
     {
       "mail": "mesame@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
-      "nickname": "shota2",
+      "nickname": "mesame",
       "phoneNumber": "+380123456789",
-      "website": "dato.ru",
+      "website": "mesame.com",
       "id": 14,
       "token": "GbTueOCQRzukeHppOMrCOnRhv"
+    },
+    {
+      "mail": "meekvse@gmail.com",
+      "password": "avto1234",
+      "confirmPassword": "avto1234",
+      "nickname": "meekvse",
+      "phoneNumber": "+380666666666",
+      "website": "meekvse.com",
+      "id": 15,
+      "token": "SANBfsVjcUpnqpgezFbsKmdHu"
     }
   ]
 }
