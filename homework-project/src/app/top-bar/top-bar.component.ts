@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { ObservablesService } from '../homewrok1-4/services/observables.service';
+import { ObservablesService } from '../shared/services/observables.service';
 
 @Component({
   selector: 'app-top-bar',
