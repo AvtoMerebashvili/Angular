@@ -18,7 +18,6 @@ export class SignGuard implements CanActivate {
 
 
     if(localStorage.getItem('token')){
-      // this.observable.$token.next(localStorage.getItem('token'));
       this.route.navigate(['/Users'])
     }
 

@@ -29,7 +29,7 @@ import { FormComponent } from './form/form.component';
       {path: 'employees', component: PeopleComponent},
       {path: 'employees/:id', component: EmployeeComponent},
       {path: 'employee/register', component: EmployeeRegisterComponent},
-      {path: 'employees/:id', component: EmployeeUpdateComponent}
+      {path: 'employee/:id', component: EmployeeUpdateComponent}
     ])
   ],
   exports:[
