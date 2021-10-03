@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DataManagerService } from '../../services/data-manager.service';
 import { HttpService } from '../../services/http.service';
 import { ObservablesService } from '../../../../shared/services/observables.service';
-import { User } from '../../entity/user.entity';
+import { User } from '../../entity/user';
 
 
 @Component({

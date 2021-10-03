@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
 import { ObservablesService } from '../shared/services/observables.service';
 
 @Component({

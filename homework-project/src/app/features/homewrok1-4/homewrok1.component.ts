@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './services/http.service';
-import { User } from './entity/user.entity';
+import { User } from './entity/user';
 
 @Component({
   selector: 'app-homewrok1',

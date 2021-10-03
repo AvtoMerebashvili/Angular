@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Person } from '../../../entity/person.entity';
 import { ApiServiceService } from '../../../services/api-service.service';
 import { FormServiceService } from '../../../services/form-service.service';
@@ -15,7 +16,8 @@ export class EmployeesComponent implements OnInit, OnChanges {
 
   constructor(
     private http:ApiServiceService,
-    private form: FormServiceService
+    private form: FormServiceService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {

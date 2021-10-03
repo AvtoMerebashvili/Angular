@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataManagerService } from '../../services/data-manager.service';
 import { HttpService } from '../../services/http.service';
-import { User } from '../../entity/user.entity';
+import { User } from '../../entity/user';
 
 @Component({
   selector: 'app-update',

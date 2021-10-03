@@ -12,7 +12,6 @@ import { ApiServiceService } from '../../../services/api-service.service';
 export class EmployeeRegisterComponent implements OnInit, OnChanges {
 
   constructor(
-    private formService:FormServiceService,
     private http: ApiServiceService
   ) { }
 

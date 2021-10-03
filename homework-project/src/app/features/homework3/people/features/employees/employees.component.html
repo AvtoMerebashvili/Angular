@@ -1,12 +1,12 @@
 <div class="person">
-    <a [routerLink]="['/employees', person.id]" (click)="getById(person.id)">
+    <a [routerLink]="[person.id]" (click)="getById(person.id)">
         <img src="https://picsum.photos/200?random={{person.id}}" alt="">
         <p class="name">{{person.employee_name }}</p>
         <p class="salary">{{person.employee_salary | currency}}</p>
         <p class="age">{{person.employee_age}} y/o</p>
     </a>    
     <div class="buttons">
-        <a [routerLink]="['/employee',person.id]"><button (click)="onUpdate(person)">Update</button></a> 
+        <a [routerLink]="['update',person.id]"><button (click)="onUpdate(person)">Update</button></a> 
         <button (click)="delete.emit(person.id)">Delete</button>
     </div>
 </div>

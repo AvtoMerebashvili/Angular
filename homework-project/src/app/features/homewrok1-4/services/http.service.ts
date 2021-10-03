@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../enviroments/enviroment';
-import { User } from "../entity/user.entity"
+import { User } from "../entity/user"
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttpService {
 
   constructor(

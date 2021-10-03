@@ -20,15 +20,17 @@
         </ng-template>    
         
         <div class="category">
-            <a routerLink="/currency"><p>Currency page</p></a>
+            <a routerLink="currency"><p>Currency page</p></a>
         </div>
         <div class="category">
-            <a routerLink="/employees"><p>dataBase</p></a>
+            <a routerLink="employees"><p>dataBase</p></a>
         </div>
     </div>
     <div class="rightside style">
-        <div class="category">
-            <a routerLink="/LogIn" (click)="onLogOut()"><p>Log Out</p></a>
-        </div>
+        <ng-container *ngIf="token != null">
+            <div class="category">
+                <a routerLink="LogIn" (click)="onLogOut()"><p>Log Out</p></a>
+            </div>
+        </ng-container>
     </div>
 </div>

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { currency } from '../entity/currency.entity'
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class HttpServiceService {
   private _URL = "http://data.fixer.io/api/latest?access_key=b2a56290e65e115411bb073a756e2908"
  

@@ -16,7 +16,6 @@ export class ApiServiceService {
   ) { }
 
   one(id:number | string | undefined){
-    console.log(id)
   let current = this.http.get<body>(`${environment.api}/employee/${id}`)
   current.subscribe(value =>{
     this.$current.next(value)

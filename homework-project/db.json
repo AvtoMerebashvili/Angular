@@ -171,16 +171,6 @@
   ],
   "users": [
     {
-      "mail": "pirveli@gmail.com",
-      "password": "avto1234",
-      "confirmPassword": "avto1234",
-      "nickname": "pirveli",
-      "phoneNumber": "+380123456789",
-      "website": "pirveli.com",
-      "id": 10,
-      "token": "puFwEqFZGcYtdFGcAjrKKttEt"
-    },
-    {
       "mail": "meore@gmail.com",
       "password": "avto1234",
       "confirmPassword": "avto1234",
@@ -229,6 +219,16 @@
       "website": "meekvse.com",
       "id": 15,
       "token": "SANBfsVjcUpnqpgezFbsKmdHu"
+    },
+    {
+      "mail": "pirveli@gmail.com",
+      "password": "avto1234",
+      "confirmPassword": "avto1234",
+      "nickname": "shota2",
+      "phoneNumber": "+380123456789",
+      "website": "dato.ru",
+      "id": 16,
+      "token": "zTkUrkchOkFqNdBMZObQZuIOv"
     }
   ]
 }

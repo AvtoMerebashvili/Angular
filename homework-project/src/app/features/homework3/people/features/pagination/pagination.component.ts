@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Person } from '../../../entity/person.entity';
+import { FormServiceService } from '../../../services/form-service.service';
 
 @Component({
   selector: 'app-pagination',
@@ -14,7 +15,7 @@ export class PaginationComponent implements OnInit {
   @Input() people: any;
   @Output() delete = new EventEmitter();
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
     this.createPages()
