@@ -3,6 +3,7 @@ import { Homework2Component } from './homework2.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { HttpServiceService } from './services/http-service.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CurrencyComponent,
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule.forChild([
+      {
+        path: "",
+        component: Homework2Component,
+      }
+    ])
   ],
   providers:[
     HttpServiceService

@@ -27,22 +27,19 @@ import { SharedModule } from 'src/app/shared/shared.module';
       {
         path: '', 
         component: PeopleComponent,
-         },
-            {
-              path: 'register', 
-              component: EmployeeRegisterComponent
-            },
-            {
-              path: ':id', 
-              component: EmployeeComponent
-            },
-            {
-              path: 'update/:id', 
-              component: EmployeeUpdateComponent
-            }
-        
-     
-        
+      },
+      {
+        path: 'register', 
+        component: EmployeeRegisterComponent
+      },
+      {
+        path: ':id', 
+        component: EmployeeComponent
+      },
+      {
+        path: 'update/:id', 
+        component: EmployeeUpdateComponent
+      }
     ])
   ],
   exports:[
