@@ -87,3 +87,29 @@
         }
     }
 }
+
+
+
+@media only screen and (max-width: 900px) {
+    .page{
+        .container{
+            .form{
+                flex-direction: column;
+                align-items: center;
+                .leftside{
+                    flex-direction: column;
+                    align-items: center;
+                    width: 80%;
+                    .input1{
+                        width: 100%;
+                        margin-top: 5px;
+                    }
+                }
+                .rigthside{
+                    width: 80%;
+
+                }
+            }
+        }
+    }
+}
